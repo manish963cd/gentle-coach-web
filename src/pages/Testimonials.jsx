@@ -2,7 +2,8 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
-import { HiStar, HiQuoteLeft } from 'react-icons/hi';
+import { HiStar } from 'react-icons/hi';
+import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2';
 import Navbar from '../components/Layout/Navbar';
 import { testimonialsData } from '../data/testimonialsData';
 
@@ -107,7 +108,7 @@ const Testimonials = () => {
                 </div>
                 
                 <div className="relative">
-                  <HiQuoteLeft className="absolute top-0 left-0 text-4xl text-yellow-500/20" />
+                  <HiOutlineChatBubbleBottomCenterText className="absolute top-0 left-0 text-4xl text-yellow-500/20" />
                   <p className="text-gray-700 italic pl-8 mb-4">"{testimonial.testimonial}"</p>
                 </div>
                 
