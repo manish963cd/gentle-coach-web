@@ -31,29 +31,29 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/90 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3 sm:py-4">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2"
           >
-            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-              <HiAcademicCap className="text-white text-xl" />
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+              <HiAcademicCap className="text-white text-lg sm:text-xl" />
             </div>
-            <span className="text-2xl font-bold gradient-text">EduCoach</span>
+            <span className="text-xl sm:text-2xl font-bold gradient-text">EduCoach</span>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all duration-300 hover:bg-purple-50 ${
+                className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all duration-300 hover:bg-purple-50 text-sm lg:text-base ${
                   location.pathname === item.path
                     ? 'text-purple-600 bg-purple-50'
                     : 'text-gray-700 hover:text-purple-600'
@@ -70,11 +70,12 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg hover:bg-purple-50 transition-colors"
+              aria-label="Toggle menu"
             >
               {isOpen ? (
-                <HiX className="text-2xl text-gray-700" />
+                <HiX className="text-xl sm:text-2xl text-gray-700" />
               ) : (
-                <HiMenu className="text-2xl text-gray-700" />
+                <HiMenu className="text-xl sm:text-2xl text-gray-700" />
               )}
             </button>
           </div>
@@ -84,7 +85,7 @@ const Navbar = () => {
         <motion.div
           initial={false}
           animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
-          className="md:hidden overflow-hidden"
+          className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md rounded-lg mx-4 mb-4"
         >
           <div className="py-4 space-y-2">
             {navItems.map((item) => (
